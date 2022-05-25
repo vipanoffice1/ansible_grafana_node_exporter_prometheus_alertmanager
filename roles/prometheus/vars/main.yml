@@ -1,0 +1,10 @@
+---
+# vars file for prometheus
+serviceName: prometheus
+
+user: prometheus
+group: prometheus
+
+
+command: "/data/prometheus/prometheus --config.file=/data/prometheus/prometheus.yml --storage.tsdb.path /data/prometheus/ --storage.tsdb.retention.time=30d --log.level=info --web.listen-address=:9090 --web.enable-lifecycle"
+version: "2.35.0"

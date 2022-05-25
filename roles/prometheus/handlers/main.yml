@@ -1,0 +1,19 @@
+---
+# handlers file for node-exporter
+- name: Reload systemd
+  command: systemctl daemon-reload
+  listen: systemd_reload
+
+- name: restart_prometheus
+  systemd:
+     name: "{{ serviceName }}"
+     state: restarted
+     daemon_reload: yes
+  listen: event_restart_prometheus
+
+- name: reload_prometheus 
+  uri:
+    url: http://localhost:9090/-/reload
+    method: POST
+    status_code: 200
+

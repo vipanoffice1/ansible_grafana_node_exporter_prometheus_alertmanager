@@ -1,0 +1,21 @@
+---
+- name: install and configure prometheus
+  unarchive:
+     src: "https://github.com/prometheus/node_exporter/releases/download/v{{ version }}/node_exporter-{{ version }}.linux-amd64.tar.gz"
+     dest: /tmp/
+     remote_src: yes
+
+- name: copy node_exporter from /tmp to /data/exporter
+  copy:
+    src: "/tmp/node_exporter-{{ version }}.linux-amd64/"
+    dest: /data/exporter/
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    remote_src: yes
+    mode: 0755
+
+- name: delete from /tmp
+  file: 
+    path: "/tmp/node_exporter-{{ version }}.linux-amd64/"
+    state: absent
+...

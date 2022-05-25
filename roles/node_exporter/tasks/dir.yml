@@ -1,0 +1,9 @@
+---
+- name: create /data/exporter
+  file:
+   path: /data/exporter
+   state: directory
+   owner: "{{ user }}"
+   group: "{{ group }}"
+   mode: 0755
+...

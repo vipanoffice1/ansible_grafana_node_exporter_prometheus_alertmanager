@@ -1,0 +1,8 @@
+---
+# tasks file for node_exporter
+- import_tasks: group_user.yml
+- import_tasks: dir.yml
+- import_tasks: install.yml
+- import_tasks: service.yml
+- import_tasks: start.yml
+- import_tasks: status.yml

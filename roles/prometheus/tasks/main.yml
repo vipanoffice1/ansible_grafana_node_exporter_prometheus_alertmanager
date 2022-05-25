@@ -1,0 +1,9 @@
+---
+# tasks file for prometheus
+- import_tasks: group-user-dir.yml
+- import_tasks: install.yml
+- import_tasks: config.yml
+- import_tasks: alert-config.yml
+- import_tasks: service.yml
+- import_tasks: start.yml
+- import_tasks: status.yml

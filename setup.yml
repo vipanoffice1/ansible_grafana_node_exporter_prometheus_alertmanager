@@ -1,0 +1,15 @@
+---
+- name: configure node_exporter
+  hosts: [node_exporter]
+  roles:
+    - node_exporter
+
+- name : configure prometheus
+  hosts: [prometheus] 
+  roles:
+    - prometheus
+
+- name: configure alertmanager
+  hosts: [alertmanager]
+  roles:
+    - alertmanager

@@ -1,0 +1,24 @@
+---
+- name: create group
+  group:
+    name: "{{ group }}"
+  become: true
+
+- name: create user
+  user:
+    name: "{{ user }}"
+    group: "{{ group }}"
+    system: yes
+    shell: "/sbin/nologin"
+    comment: "{{ user }} nologin user"
+    createhome: no
+    state: present
+
+- name: create /data/prometheus
+  file:
+    path: /data/prometheus
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0755
+...

@@ -1,0 +1,7 @@
+---
+- name: check prometheus status
+  uri:
+    url: http://localhost:9090
+    method: GET
+    status_code: 200
+    

@@ -1,0 +1,25 @@
+---
+- name: download, extract, copy 
+  unarchive:
+     src: "https://github.com/prometheus/alertmanager/releases/download/v{{ version }}/alertmanager-{{ version }}.linux-amd64.tar.gz"
+     dest: /tmp
+     remote_src: yes
+
+- name: copy to /data/alertmanager
+  copy: 
+    src: /tmp/alertmanager-{{ version }}.linux-amd64/
+    dest: /data/alertmanager
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    remote_src: yes
+    mode: 0755
+
+- name: copy config
+  file:
+    src: files/alertmanager.yml
+    dest: /data/alertmanager/alertmanager.yml
+    
+- name: delete files from /tmp
+  file:
+    path: /tmp/alertmanager-{{ version }}.linux-amd64/
+    state: absent

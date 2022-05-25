@@ -1,0 +1,6 @@
+---
+- name: start service
+  service: 
+     name: "{{ serviceName }}"
+     state: started
+     enabled: yes

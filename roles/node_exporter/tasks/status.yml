@@ -1,0 +1,7 @@
+---
+- name: check node_exporter status
+  uri:
+    url: http://localhost:9100/metrix
+    method: GET
+    status_code: 200
+    

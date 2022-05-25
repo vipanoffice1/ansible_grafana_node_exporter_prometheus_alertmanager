@@ -1,0 +1,21 @@
+---
+- name: install prometheus
+  unarchive: 
+     src: "https://github.com/prometheus/prometheus/releases/download/v{{ version }}/prometheus-{{ version }}.linux-amd64.tar.gz"
+     dest: /tmp
+     remote_src: yes
+
+- name: copy prometheus to data
+  copy:
+    src: /tmp/prometheus-{{ version }}.linux-amd64/
+    dest: /data/prometheus
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    remote_src: yes
+    mode: 0755
+
+- name: delete dir
+  file:
+    path: "/tmp/prometheus-{{ version }}.linux-amd64"
+    state: absent
+...

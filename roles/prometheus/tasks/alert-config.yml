@@ -1,0 +1,10 @@
+---
+- name: alert config 
+  copy: 
+    src: files/alertrules.yml 
+    dest: /data/prometheus/alertrules.yml
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 0755
+
+...

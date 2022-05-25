@@ -1,0 +1,16 @@
+---
+- name: create group
+  group:
+     name: "{{ group }}"
+  become: yes
+
+- name: create user
+  user: 
+    name: "{{ user }}"
+    group: "{{ group }}"
+    system: yes
+    shell: "/sbin/nologin"
+    comment: "{{ user }} nologin User"    
+    createhome: no
+    state: present
+...

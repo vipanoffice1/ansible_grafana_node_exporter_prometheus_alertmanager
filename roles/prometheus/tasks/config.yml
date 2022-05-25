@@ -1,0 +1,6 @@
+---
+- name: config prometheus
+  template:
+     src: prometheus.conf.j2
+     dest: /data/prometheus/prometheus.yml
+...

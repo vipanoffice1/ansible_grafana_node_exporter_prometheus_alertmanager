@@ -1,0 +1,7 @@
+---
+- name: service status
+  uri:
+    url: http://localhost:9093
+    method: GET
+    status_code: 200 
+      
