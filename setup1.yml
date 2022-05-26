@@ -1,4 +1,4 @@
 - name: configure alertmanager
   hosts: [grafana]
   roles:
-    - grafana
+    - datasource

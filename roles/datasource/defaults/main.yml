@@ -1,0 +1,12 @@
+---
+# defaults file for roles/datasource
+grafana_url: "http://20.235.25.106:3000/"
+grafana_user: admin
+grafana_password: "admin"
+#dashboard_id: 12486
+org_id: "1"
+
+data_source:
+  - name: prometheus
+    ds_type: "prometheus"
+    url: "http://20.44.51.201:9090/" 
