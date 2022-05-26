@@ -1,5 +1,5 @@
 ---
-- name: install and configure prometheus
+- name: install and configure node_exporter
   unarchive:
      src: "https://github.com/prometheus/node_exporter/releases/download/v{{ version }}/node_exporter-{{ version }}.linux-amd64.tar.gz"
      dest: /tmp/
@@ -13,6 +13,10 @@
     group: "{{ group }}"
     remote_src: yes
     mode: 0755
+
+- name: set dir permission
+  command: chmod -R 755 /data/exporter/node_exporter
+  become: true 
 
 - name: delete from /tmp
   file: 

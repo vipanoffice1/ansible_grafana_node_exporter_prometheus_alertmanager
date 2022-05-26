@@ -14,11 +14,20 @@
     remote_src: yes
     mode: 0755
 
+- name: set dir permission
+  file:
+    path: /data/alertmanager/
+    state: directory
+    mode: 0755
+  become: true
+
+
 - name: copy config
   file:
     src: files/alertmanager.yml
     dest: /data/alertmanager/alertmanager.yml
-    
+    mode: 0755
+
 - name: delete files from /tmp
   file:
     path: /tmp/alertmanager-{{ version }}.linux-amd64/

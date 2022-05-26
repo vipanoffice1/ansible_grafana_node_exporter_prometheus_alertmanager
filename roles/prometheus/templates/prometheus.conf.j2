@@ -1,23 +1,24 @@
 global:
-  scrape_interval: 15s
+  scrape_interval: 30s
+  external_labels:
+      env: SIT 
 
 scrape_configs:
-  - job_name: 'prometheus'
-    scrape_interval: 15s
-    scrape_timeout: "10s"
-    metrics_path: '/metrics'
-    scheme: 'http'
+  - job_name: prometheus
+    scrape_interval: 25s
+    scrape_timeout: 20s
+    metrics_path: /metrics
+    scheme: http
 
     static_configs:
-      - targets: [localhost:9090]
-  - job_name: 'node_exporter'
-    scrape_interval: 5s
+      - targets: [20.44.51.201:9090]
+  
+- job_name: node_exporter'
+    scrape_interval: 15s
     static_configs:
       - targets:
       {% for host in groups['node_exporter'] %}
-     # {% if inventory_hostname != host %}
       - {{ host }}:9100
-     # {% endif %}
       {% endfor %}
 
 rule_files:
@@ -28,7 +29,5 @@ alerting:
   - static_configs:
     - targets:
     {% for host in groups['alertmanager'] %}
-   # {% if inventory_hostname != host %}
     - {{ host }}:9093
-   # {% endif %}
     {% endfor %}

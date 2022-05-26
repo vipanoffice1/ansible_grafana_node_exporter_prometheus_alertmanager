@@ -14,6 +14,11 @@
     remote_src: yes
     mode: 0755
 
+- name: set dir permission
+  command: chmod -R 755 /data/prometheus
+  become: true
+
+
 - name: delete dir
   file:
     path: "/tmp/prometheus-{{ version }}.linux-amd64"

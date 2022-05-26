@@ -13,3 +13,8 @@
   hosts: [alertmanager]
   roles:
     - alertmanager
+
+- name: configure grafana
+  hosts: [grafana]
+  roles:
+    - grafana

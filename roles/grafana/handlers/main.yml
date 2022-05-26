@@ -1,2 +1,9 @@
 ---
 # handlers file for grafana
+- name: restart service
+  service:
+     name: grafana-server
+     state: restarted
+     daemon_reload: yes     
+  listen: event_restart_grafana  
+

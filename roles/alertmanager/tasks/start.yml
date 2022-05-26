@@ -1,6 +1,8 @@
 ---
-- name: start service
-  service: 
-     name: "{{ serviceName }}"
-     state: started
-     enabled: yes
+- name: start alertmanager
+  service:
+    name: alertmanager
+    state: started
+    enabled: yes
+    daemon_reload: yes
+...

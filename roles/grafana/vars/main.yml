@@ -1,2 +1,4 @@
 ---
 # vars file for grafana
+grafana_admin_password: "admin"
+version: "8.5.3"

@@ -1,6 +1,0 @@
----
-- name: install and configure prometheus
-  yum: 
-    name: prometheus
-    state: latest
-...

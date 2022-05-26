@@ -1,11 +1,11 @@
 ---
-# vars file for node-exporter
+# vars file for node_exporter
 serviceName: node_exporter
 
 user: node_exporter
 group: node_exporter
 
-command: /data/exporter/node_exporter/node_exporter --web.listen-address 0.0.0.0:9100
+command: /data/exporter/node_exporter --web.listen-address 0.0.0.0:9100
 
 version: 1.3.1
 

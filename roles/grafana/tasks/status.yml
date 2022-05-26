@@ -1,0 +1,6 @@
+---
+- name: status of grafana
+  uri:
+    url: http://localhost:3000
+    method: GET
+    status_code: 200
